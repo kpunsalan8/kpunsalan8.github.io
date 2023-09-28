@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Finish Booking</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #00FF00; /* Bright green background color */
+            color: #FF0000; /* Bright red text color */
+            text-align: center;
+        }
+
+        .container {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        #submitBtn {
+            background-color: gray;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+        }
+
+        #submitBtn.active {
+            background-color: #FF69B4; /* Pink color */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Finish Booking!</h1>
+    <div class="container">
+        <form id="bookingForm">
+            <label for="partyDate">Date of Your Party:</label>
+            <input type="text" id="partyDate" name="partyDate" required><br>
+
+            <label for="secondChoicePrincess">Second Choice Princess:</label>
+            <input type="text" id="secondChoicePrincess" name="secondChoicePrincess" required><br>
+
+            <label for="packageChoice">Package You Want:</label>
+            <input type="text" id="packageChoice" name="packageChoice" required><br>
+
+            <button type="submit" id="submitBtn" disabled>Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const packageChoice = document.getElementById("packageChoice");
+        const submitBtn = document.getElementById("submitBtn");
+
+        // Function to check if the package text box value is valid
+        function checkPackageValidity() {
+            const validPackages = ["Ball", "Palace", "Sparkle", "Garden", "Castle"];
+            const packageValue = packageChoice.value.trim();
+            const isValid = validPackages.includes(packageValue);
+            submitBtn.classList.toggle("active", isValid);
+            submitBtn.disabled = !isValid;
+        }
+
+        // Event listener to check package validity on input change
+        packageChoice.addEventListener("input", checkPackageValidity);
+
+        // Event listener to check package validity on form submission
+        document.getElementById("bookingForm").addEventListener("submit", function (e) {
+            const packageValue = packageChoice.value.trim();
+            if (!["Ball", "Palace", "Sparkle", "Garden", "Castle"].includes(packageValue)) {
+                e.preventDefault(); // Prevent form submission if package is not valid
+            }
+        });
+    </script>
+</body>
+</html>
