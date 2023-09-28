@@ -1,1 +1,161 @@
-Hello page1
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pricing</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #6320ff;
+            color: #290070;;
+        }
+
+        main {
+            margin-top: 50px;
+        }
+
+        .pricing-container {
+            background-color: #fbff36;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #290070;
+        }
+
+        .package {
+            margin-bottom: 20px;
+        }
+
+        .package h2 {
+            font-size: 24px;
+            color: #4d00ff;
+        }
+
+        .package p {
+            font-size: 18px;
+            color: #290070;
+        }
+
+        .contact-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+            text-align: left;
+            display: none; /* Hide this container by default */
+        }
+
+        .contact-container.visible {
+            display: block; /* Show this container when needed */
+        }
+
+        .flash {
+            animation: flashText 0.5s alternate infinite;
+        }
+
+        @keyframes flashText {
+            from {
+                color: #4d00ff;
+            }
+            to {
+                color: #ff0000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pricing</h1>
+    </header>
+    <main>
+        <div class="pricing-container">
+            <div class="package flash"> <!-- Apply the flashing effect here -->
+                <h2>Princess Sparkle Package (ON SALE 20% off)</h2>
+                <p><strong>Price: $199</strong></p>
+                <p>Our Princess Sparkle Package includes a magical princess appearance at your child's birthday party. Your little one will have the opportunity to meet and greet their favorite princess, take photos, and enjoy a captivating storytime session.</p>
+            </div>
+            
+            <div class="package flash"> <!-- Apply the flashing effect here -->
+                <h2>Royal Ball Package (ON SALE 40% off)</h2>
+                <p><strong>Price: $299</strong></p>
+                <p>With the Royal Ball Package, your child's birthday will turn into an enchanting royal affair. This package includes a princess appearance, a mini royal ball with dancing and games, and a special gift for the birthday child.</p>
+            </div>
+
+            <div class="package">
+                <h2>Majestic Palace Package (ON SALE 50% off)</h2>
+                <p><strong>Price: $499</strong></p>
+                <p>For the ultimate princess experience, choose our Majestic Palace Package. It includes everything from the previous packages plus a beautifully decorated princess-themed venue, a royal feast, and a magical performance by the princess herself.</p>
+            </div>
+
+            <div class="package"> 
+                <h2>Enchanted Garden Package (ON SALE 28% off)</h2>
+                <p><strong>Price: $349</strong></p>
+                <p>Step into an Enchanted Garden with this package! Your child and their friends will enjoy a magical experience surrounded by nature and wonder. Includes a garden-themed princess appearance and games.</p>
+            </div>
+
+            <div class="package flash"> <!-- Apply the flashing effect here -->
+                <h2>Crystal Castle Package (ON SALE 30% off)</h2>
+                <p><strong>Price: $599</strong></p>
+                <p>The Crystal Castle Package offers the pinnacle of royal celebrations. It includes a princess appearance in a shimmering crystal castle, a grand ball, and an exclusive gift for the birthday child.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Did you find a package you are interested in? Important note to remember: when asked what package you would
+            like when booking, you must type exactly "Sparkle", "Ball", "Palace", "Garden", or "Castle" to be able to submit
+            so we know which package you would like!
+        </p>
+        <button id="yesButton">Yes</button>
+    </footer>
+
+    <div class="contact-container" id="contactContainer">
+        <h2>Contact Information</h2>
+        <form action="booking2.html">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            
+            <label for="preferredPrincess">Preferred Princess:</label>
+            <input type="text" id="preferredPrincess" name="preferredPrincess" required><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <input type="submit" value="Submit Booking">
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to handle showing/hiding the contact form
+        const yesButton = document.getElementById("yesButton");
+        const contactContainer = document.getElementById("contactContainer");
+
+        yesButton.addEventListener("click", function () {
+            contactContainer.classList.add("visible");
+        });
+
+        // JavaScript to make package titles flash every 15 seconds
+        setInterval(function () {
+            const packageTitles = document.querySelectorAll(".package h2");
+            packageTitles.forEach(function (title) {
+                title.classList.toggle("flash");
+            });
+        }, 10000); // Flash every 15 seconds
+    </script>
+</body>
+</html>
