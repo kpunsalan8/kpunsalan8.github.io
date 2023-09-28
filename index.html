@@ -10,12 +10,11 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            background-color: #cb50ca; /* Set the background color */
-            color: #ca1fd2; /* Set the text color */
+            background-color: #cb50ca;
+            color: #ca1fd2;
         }
 
         header {
-            background-color: #333;
             padding: 10px 0;
         }
 
@@ -32,6 +31,28 @@
 
         main {
             margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: #fff; /* Background color for the squares */
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .text-bubble {
+            background-color: #ca1fd2;
+            color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -39,15 +60,17 @@
     <header>
         <nav>
             <ul>
-                <li><a href="page1.html">About</a></li>
-                <li><a href="page2.html">Pricing</a></li>
+                <li><a href="page1.html">Pricing</a></li>
+                <li><a href="page2.html">About</a></li>
                 <li><a href="page3.html">Princesses</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1 style="color: #ca1fd2;">Princess Parties</h1> <!-- Set the title text color -->
-        <!-- Your content goes here -->
+        <h1 style="color: #ca1fd2;">Princess Parties!</h1>
+        <div class="text-bubble">
+            <p>We are your premier princess booking and party planning service for children's parties! Experience the magic of our enchanting princesses who will make your child's birthday unforgettable. Right now, we're excited to offer a special sale on all our packages. Don't miss out on this fantastic opportunity to bring the joy of fairy tales to your little one's special day!</p>
+        </div>
     </main>
 </body>
 </html>
